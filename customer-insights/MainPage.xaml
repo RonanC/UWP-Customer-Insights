@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="customer_insights.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:customer_insights"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="#FFF9F9F9">
+        <StackPanel Height="70" Background="#FFF0F0F0" VerticalAlignment="Top">
+            <TextBlock x:Name="tbkHeader" TextWrapping="Wrap" Text="Customer Insights" FontFamily="Sitka Text" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" Height="32" Margin="43,10,43,0" Foreground="#FF041C89"/>
+            <TextBlock x:Name="tbkSubHeading" TextWrapping="Wrap" Text="Delve Deeper" HorizontalAlignment="Center" VerticalAlignment="Center" SelectionChanged="tbkSubHeading_SelectionChanged" Foreground="Gray" Margin="135,0"/>
+        </StackPanel>
+        
+        <StackPanel Margin="30,70,30,10" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock x:Name="textBlock" TextWrapping="Wrap" FontWeight="Bold" Height="25">
+            	<Run Text="Customer ID:"/>
+            	<LineBreak/>
+            	<Run/>
+            </TextBlock>
+            <TextBox x:Name="tbxCustId" TextWrapping="Wrap" Text="" PlaceholderText="Enter a number between 1 and 10'000"/>
+            <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnSearch_Click"/>
+            <CheckBox x:Name="cbShowJsonReq" Content="Show Raw JSON Request" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <CheckBox x:Name="cbShowJsonRes" Content="Show Raw JSON Response" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Checked="cbShowJsonRes_Checked" Unchecked="cbShowJsonRes_Unchecked"/>
+            <CheckBox x:Name="cbHideUserProf" Content="Hide User Profile" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <CheckBox x:Name="cbHideRent" Content="Hide Rent Transactions" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <CheckBox x:Name="cbHideTrans" Content="Hide Transactions" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <StackPanel Height="170">
+                <TextBlock x:Name="tbkId" TextWrapping="Wrap" Text="ID:" FontWeight="Bold"/>
+                <TextBlock x:Name="tbkBalance" TextWrapping="Wrap" Text="Balance:"/>
+                <TextBlock x:Name="tbkStatus" TextWrapping="Wrap" Text="Status:"/>
+                <TextBlock x:Name="tbkIncome" TextWrapping="Wrap" Text="Income: "/>
+                <TextBlock x:Name="tbkPayday" TextWrapping="Wrap" Text="Payday:"/>
+                <TextBlock x:Name="tbkAge" TextWrapping="Wrap" Text="Age:"/>
+                <TextBlock x:Name="tbkSex" TextWrapping="Wrap" Text="Sex:"/>
+                <TextBlock x:Name="tbkCounty" TextWrapping="Wrap" Text="County:"/>
+            </StackPanel>
+        </StackPanel>
+
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,600,0,0">
+            <StackPanel x:Name="spJsonRes" Margin="0,0,0,0" Background="#FFCAF5FF" Visibility="Visible" Padding="10">
+                <!--<ScrollViewer VerticalScrollBarVisibility="Auto"/>-->
+                <TextBlock x:Name="tbkJsonResHeader" TextWrapping="Wrap" Text="JSON Response:" FontWeight="Bold" FontFamily="Consolas"/>
+                <TextBlock x:Name="tbkJsonRes" TextWrapping="Wrap" Text="" FontFamily="Consolas"/>
+            </StackPanel>
+        </ScrollViewer>
+
+    </Grid>
+</Page>
